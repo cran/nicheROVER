@@ -1,35 +1,26 @@
 Package: nicheROVER
-Title: (Niche) (R)egion and Niche (Over)lap Metrics for
-        Multidimensional Ecological Niches
-Version: 1.0
-Date: 2014-07-21
+Title: Niche Region and Niche Overlap Metrics for Multidimensional
+        Ecological Niches
+Version: 1.1.0
+Date: 2021-06-03
 Authors@R: c(person("Martin", "Lysy", role = c("aut", "cre"),
-    email = "mlysy@uwaterloo.ca"),
-    person("Ashley D.", "Stasko", role = c("aut", "ctb")),
-    person("Heidi K.", "Swanson", role = c("aut", "ctb")))
-Description: This package uses a probabilistic method to calculate niche
-    regions and pairwise niche overlap using multidimensional niche indicator
-    data (e.g., stable isotopes, environmental variables, etc.). The niche
-    region is defined as the joint probability density function of the
-    multidimensional niche indicators at a user-defined probability alpha
-    (e.g., 95%).  Uncertainty is accounted for in a Bayesian framework, and the
-    method can be extended to three or more indicator dimensions.  It provides
-    directional estimates of niche overlap, accounts for species-specific
-    distributions in multivariate niche space, and produces unique and
-    consistent bivariate projections of the multivariate niche region.  A
-    forthcoming article by Swanson et al. (Ecology, 2014) provides a detailed
-    description of the methodology.  See the package vignette for a worked
-    example using fish stable isotope data.
-Depends: R (>= 1.9.0), mvtnorm
-Suggests: knitr
+                    email = "mlysy@uwaterloo.ca"),
+             person("Ashley D.", "Stasko", role = "aut"),
+             person("Heidi K.", "Swanson", role = "aut"))
+Description: Implementation of a probabilistic method to calculate 'nicheROVER' (_niche_ _r_egion and niche _over_lap) metrics using multidimensional niche indicator data (e.g., stable isotopes, environmental variables, etc.). The niche region is defined as the joint probability density function of the multidimensional niche indicators at a user-defined probability alpha (e.g., 95%).  Uncertainty is accounted for in a Bayesian framework, and the method can be extended to three or more indicator dimensions.  It provides directional estimates of niche overlap, accounts for species-specific distributions in multivariate niche space, and produces unique and consistent bivariate projections of the multivariate niche region.  The article by Swanson et al. (Ecology, 2015) provides a detailed description of the methodology.  See the package vignette for a worked example using fish stable isotope data.
+Depends: R (>= 1.9.0)
+Imports: graphics, stats, utils
+Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
-License: GPL-2
+License: GPL-3
 LazyData: true
-Packaged: 2014-07-25 17:41:04 UTC; Jerome
-Author: Martin Lysy [aut, cre],
-  Ashley D. Stasko [aut, ctb],
-  Heidi K. Swanson [aut, ctb]
-Maintainer: Martin Lysy <mlysy@uwaterloo.ca>
+Encoding: UTF-8
+RoxygenNote: 7.1.1
 NeedsCompilation: no
+Packaged: 2021-06-03 17:56:28 UTC; mlysy
+Author: Martin Lysy [aut, cre],
+  Ashley D. Stasko [aut],
+  Heidi K. Swanson [aut]
+Maintainer: Martin Lysy <mlysy@uwaterloo.ca>
 Repository: CRAN
-Date/Publication: 2014-07-25 21:15:59
+Date/Publication: 2021-06-03 18:10:02 UTC

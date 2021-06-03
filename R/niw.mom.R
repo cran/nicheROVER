@@ -1,5 +1,24 @@
-niw.mom <-
-function(lambda, kappa, Psi, nu) {
+#' Mean and variance of the Normal-Inverse-Wishart distribution.
+#'
+#' This function computes the mean and variance of the Normal-Inverse-Wishart (NIW) distribution.  Can be used to very quickly compute Bayesian point estimates for the conjugate NIW prior.
+#'
+#' @details The NIW distribution \eqn{p(\mu, \Sigma | \lambda, \kappa, \Psi, \nu)} is defined as
+#' \deqn{
+#' \Sigma \sim W^{-1}(\Psi, \nu), \quad \mu | \Sigma \sim N(\lambda, \Sigma/\kappa).
+#' }
+#' Note that cov\eqn{(\mu, \Sigma) = 0}.
+#'
+#' @param lambda Location parameter. See 'Details'.
+#' @param kappa Scale parameter. See 'Details'.
+#' @param Psi Scale matrix.  See 'Details'.
+#' @param nu Degrees of freedom.  See 'Details'.
+#'
+#' @return Returns a list with elements `mu` and `Sigma`, each containing lists with elements `mean` and `var`.  For `mu` these elements are of size `length(lambda)` and `c(length(lambda),length(lambda))`.  For `Sigma` they are of size `dim(Psi)` and `c(dim(Psi), dim(Psi))`, such that cov\eqn{(\Sigma_{ij}, \Sigma_{kl})=}`Sigma$var[i,j,k,l]`.
+#'
+#' @seealso [rniw()], [niw.coeffs()], [niw.post()].
+#' @example examples/niw.mom.R
+#' @export
+niw.mom <- function(lambda, kappa, Psi, nu) {
   d <- length(lambda)
   b <- nu-d
   mu.mean <- lambda

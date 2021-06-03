@@ -1,5 +1,24 @@
-overlap.plot <-
-function(over.stat, nbreaks = 50, equal.axis = FALSE, species.names, col,
+#' Plot the overlap metric.
+#'
+#' Plots the posterior distribution of the niche region overlap metric calculated for each pairwise combination of species.
+#'
+#' @details This function uses the overlap metric information in `over.stat` calculated by [overlap()] to create 2-dimensional plots of interspecific niche region overlap.
+#'
+#' @param over.stat An array with `dim(over.stat) = c(nspecies, nspecies, nreps)` containing `nreps` calculations of the overlap metric for each pair of species. See 'Details'.
+#' @param nbreaks Number of breaks in the histogram. Defaults to 50.
+#' @param equal.axis Logical. If `TRUE`, all histograms in a given column of the output (corresponding to different Species \eqn{A} for the same Species \eqn{B}) are plotted on the same range.
+#' @param species.names A vector of species names. Defaults to `dimnames(over.stat)[[1]]`.
+#' @param col A vector of the colours in which each species will be drawn.
+#' @param mean.cred Logical. If `TRUE`, vertical lines for mean and 95% credible intervals will be included in the historgram of each overlap metric.
+#' @param mean.cred.col Colour of the mean and credible interval lines in the histogram.
+#' @param xlab Optional plot title, located on the bottom.  Default is no title.
+#'
+#' @seealso [overlap()], [niw.post()], [niiw.post()].
+#' @return Returns a series of histograms illustrating the probability of pairwise species overlap.
+#'
+#' @example examples/overlap.plot.R
+#' @export
+overlap.plot <- function(over.stat, nbreaks = 50, equal.axis = FALSE, species.names, col,
                          mean.cred = TRUE, mean.cred.col = "green", xlab) {
   if(length(dim(over.stat)) != 3 || dim(over.stat)[1] != dim(over.stat)[2])
     stop("Incorrect specification of over.stat.")

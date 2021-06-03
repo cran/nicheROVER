@@ -1,5 +1,23 @@
-ellipse <-
-function(mu, V, alpha = .95, n = 100) {
+#' Point coordinates for a 2-D ellipse.
+#'
+#' Calculates coordinates of points for plotting a 2-dimensional ellipse based on user-defined parameters. Can be used for exploratory data analysis to produce ellipses at a given niche region size (e.g., \eqn{\alpha = 95\%}).
+#'
+#' @details This function provides the coordinates needed to plot a 2-dimensional ellipse based on user-defined parameters, such that `X = c(x,y)` satisfies the equation
+#' \deqn{
+#' (X-\mu)' V^{-1} (X-\mu) = C,
+#' }
+#' where \eqn{C=\code{qchisq(alpha, df = 2)}}.
+#'
+#' @param mu Centre of ellipse. A vector of length 2.
+#' @param V Scale of ellipse. A 2x2 matrix. See 'Details'.
+#' @param alpha Niche region size. See 'Details'.
+#' @param n Number of points to return for plotting.
+#' @return Returns a matrix of coordinates `cbind(x,y)` to plot a 2-dimensional ellipse.
+#' @seealso [niche.plot()] for plotting.
+#'
+#' @example examples/ellipse.R
+#' @export
+ellipse <- function(mu, V, alpha = .95, n = 100) {
   tmp <- eigen(V)
   hlen <- sqrt(qchisq(alpha, df = 2)*tmp$val)
   theta <- atan2(tmp$vec[2,1], tmp$vec[1,1])
