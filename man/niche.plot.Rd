@@ -14,7 +14,8 @@ niche.plot(
   col,
   ndens = 512,
   pfrac = 0,
-  xlab
+  xlab,
+  legend = TRUE
 )
 }
 \arguments{
@@ -37,6 +38,8 @@ niche.plot(
 \item{pfrac}{Fraction of the plot on which to display 1-dimensional raw niche indicator data. \code{pfrac = 0} means don't display the raw data in 1-d.}
 
 \item{xlab}{Title of plot, located on the bottom.  Defaults to no title.}
+
+\item{legend}{Whether or not to add a legend.  Defaults to \code{TRUE}.}
 }
 \value{
 Returns a series of plots displaying niche indicator data and their probabilistic niche projections.
@@ -62,7 +65,7 @@ fish.data <- tapply(1:nrow(fish), fish$species, function(ii) X = fish[ii,2:4])
 clrs <- c("black", "red", "blue", "orange") # colors for each species
 niche.plot(niche.par = fish.par, niche.data = fish.data, pfrac = .1,
            iso.names = expression(delta^{15}*N, delta^{13}*C, delta^{34}*S),
-           col = clrs, xlab = expression("Isotope Ratio (\u2030)"))
+           col = clrs, xlab = expression("Isotope Ratio (per mille)"))
 }
 \references{
 Swanson, H.K., Lysy, M., Stasko, A.D., Power, M., Johnson, J.D., and Reist, J.D. "A new probabilistic method for quantifying n-dimensional ecological niches and niche overlap." \emph{Ecology: Statistical Reports} 96:2 (2015): 318-324. \doi{10.1890/14-0235.1}.
